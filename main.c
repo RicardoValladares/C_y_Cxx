@@ -1,8 +1,8 @@
 /* incluimos encabezados de librerias necesarias para el programa */
 #include <stdio.h> 		//libreria del compilador
-#include "library.h"	//libreria externa
+#include "library.h"		//libreria externa
 /* incluimos encabezados de codigos externos a usar en el programa */
-#include "Persona.h" 	//$ gcc main.c Persona.c -o main.c
+#include "Persona.h" 		//$ gcc main.c Persona.c -o main.c
 
 /* enunciamos las funciones como prototipos de las librerias externas a usar */
 void init_chars(char string[], int length);
