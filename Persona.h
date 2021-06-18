@@ -2,18 +2,18 @@
 * usar funcion con argumentos:							*
 *										*
 *	variable X;								*
-*	funcion(X); //es una funcion que solo lee la variable X			*
-*	funcion(&X); //es una funcion que lee y modifica la variable X		*
+*	funcion(X); 	//es una funcion que solo lee la variable X		*
+*	funcion(&X); 	//es una funcion que lee y modifica la variable X	*
 *										*
 *	arreglo X[10];								*
-*	funcion(X); //es una funcion que lee y modifica el arreglo X 		*
+*	funcion(X); 	//es una funcion que lee y modifica el arreglo X	*
 *										*
 *********************************************************************************/
 /******************************************************************************** 
 * construir funcion con argumentos:						*
 *										*
 *	void funcion(variable X){						*
-*		read X;				//solo lee la variable X	*
+*		read X;			//solo lee la variable X		*
 *	}									*
 *	void funcion(variable *X){						*
 *		*X = *X + 1;		//lee y modifica la variable X		*	
