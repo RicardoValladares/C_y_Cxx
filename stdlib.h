@@ -1,3 +1,7 @@
+void init_chars(char string[], int length);
+int copy_chars(char INstring[], char OUTstring[], int OUTlength);
+int clean_char(char ascii, char* character);
+int ctoi(char string[10], int* integer);
 
 void init_chars(char string[], int length){
 	int puntero;

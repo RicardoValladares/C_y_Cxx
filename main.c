@@ -4,11 +4,6 @@
 /* incluimos encabezados de codigos externos a usar en el programa */
 #include "Persona.h" 		//$ gcc main.c Persona.c -o main.c
 
-/* enunciamos las funciones como prototipos de las librerias externas a usar */
-void init_chars(char string[], int length);
-int ctoi(char string[10], int* integer);
-
-
 /* funcion main con argumentos */
 int main(int argc, char *argv[]){
 	
