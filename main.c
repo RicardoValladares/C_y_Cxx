@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 	Persona_init(&yo);
 	init_chars(CEdad,10);
 
-	/* validamos si existan argumento de apertura para la ejecucion */
+	/* validamos si existen argumentos de apertura para la ejecucion */
 	if(argc==2){
 		Estado = Person_load(argv[1], &yo);
 		if(Estado==1){
