@@ -12,14 +12,14 @@
 /************************************************************************ 
 * construir funcion con argumentos:					*
 *									*
-*	funcion(variable X){						*
+*	void funcion(variable X){					*
 *		read X;				//solo lee variable X	*
 *	}								*
-*	funcion(variable *X){						*
+*	void funcion(variable *X){					*
 *		*X = *X + 1;		//lee y modifica la variable X	*	
 *	}								*
 *									*
-*	funcion(arreglo X[]){						*
+*	void funcion(arreglo X[]){					*
 *		X[0] = X[0] + 1;	//lee y modifica el arreglo X	*	
 *	}								*
 ************************************************************************/
