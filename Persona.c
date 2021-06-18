@@ -56,7 +56,7 @@ int Person_load(char ruta[], Persona *person){
 	int Space = 32;
 	int puntero = 0;
 	int plineal = 0;
-	int pespacion = 0;
+	int pespaciolineal = 0;
 	char cedad[10];
 	init_chars(cedad,10);
 	FILE *archivo = fopen(ruta, "r");
@@ -90,27 +90,27 @@ int Person_load(char ruta[], Persona *person){
 		}
 		else{
 			// de la linea 1 se toma Nombre1 y Nombre2
-			pespacion = 0;
+			pespaciolineal = 0;
 			puntero = 0;
 			for(i=8; i<=plinea1; i++){
 				caracter = linea1[i];
 				estado = clean_char(caracter,&climpio);
 				if(climpio == Space){
 					if(i==8){
-						pespacion = 0;
+						pespaciolineal = 0;
 					}
 					else{
-						pespacion = pespacion + 1;
+						pespaciolineal = pespaciolineal + 1;
 					}
 					puntero = 0;
 				}
-				if(pespacion==0 && climpio!=Space){
+				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea1[i];
 					estado = clean_char(caracter,&climpio);
 					person->Nombre1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
-				if(pespacion==1 && climpio!=Space){
+				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea1[i];
 					estado = clean_char(caracter,&climpio);
 					person->Nombre2[puntero] = climpio;
@@ -118,27 +118,27 @@ int Person_load(char ruta[], Persona *person){
 				}
 			}
 			// de la linea 2 se toma Apellido1 y Apellido2
-			pespacion = 0;
+			pespaciolineal = 0;
 			puntero = 0;
 			for(i=11; i<=plinea2; i++){
 				caracter = linea2[i];
 				estado = clean_char(caracter,&climpio);
 				if(climpio == Space){
 					if(i==11){
-						pespacion = 0;
+						pespaciolineal = 0;
 					}
 					else{
-						pespacion = pespacion + 1;
+						pespaciolineal = pespaciolineal + 1;
 					}
 					puntero = 0;
 				}
-				if(pespacion==0 && climpio!=Space){
+				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea2[i];
 					estado = clean_char(caracter,&climpio);
 					person->Apellido1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
-				if(pespacion==1 && climpio!=Space){
+				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea2[i];
 					estado = clean_char(caracter,&climpio);
 					person->Apellido2[puntero] = climpio;
