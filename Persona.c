@@ -104,12 +104,14 @@ int Person_load(char ruta[], Persona *person){
 					}
 					puntero = 0;
 				}
+				//Nombre1
 				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea1[i];
 					estado = clean_char(caracter,&climpio);
 					person->Nombre1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
+				//Nombre2
 				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea1[i];
 					estado = clean_char(caracter,&climpio);
@@ -132,12 +134,14 @@ int Person_load(char ruta[], Persona *person){
 					}
 					puntero = 0;
 				}
+				//Apellido1
 				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea2[i];
 					estado = clean_char(caracter,&climpio);
 					person->Apellido1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
+				//Apellido2
 				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea2[i];
 					estado = clean_char(caracter,&climpio);
