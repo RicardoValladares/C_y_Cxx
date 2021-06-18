@@ -1,8 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void pausa(int segundos);
-
 void pausa(int segundos){
 	printf("Pausado... %d",segundos);
 	do{
