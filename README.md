@@ -1,4 +1,4 @@
-# C-library_code-externo
+# C + librerias externas + codigo externo
 Ejemplo completo de como usar el lenguaje C para construir y llamar librerias externas asi como codigo externo.
 
 ![Windows](https://raw.githubusercontent.com/RicardoValladares/C-library_code-externo/main/imagenes/windows.png)
