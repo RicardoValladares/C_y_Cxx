@@ -22,40 +22,42 @@ int main(int argc, char *argv[]){
 	if(argc==2){
 		Estado = Person_load(argv[1], &yo);
 		if(Estado==Ok){
-			printf("\n--------------------------------\n");
+			//printf("\n--------------------------------\n");
+			print("\n--------------------------------\n");
 			Persona_show(yo);
-			printf("--------------------------------\n");
-			printf("Archivo cargado\n");
+			print("--------------------------------\n");
+			print("Archivo cargado\n");
 		}
 		else{
-			printf("Error al abrir archivo\n");
+			print("Error al abrir archivo\n");
 		}
 	}
 
 	/* si no hay argumentos validos creamos otra ejecucion */
 	else{
-		printf("Ingrese su Primer Nombre: ");
-		scanf("%30s", yo.Nombre1);
-		printf("Ingrese su Segundo Nombre: ");
-		scanf("%30s", yo.Nombre2);
-		printf("Ingrese su Primer Apellido: ");
-		scanf("%30s", yo.Apellido1);
-		printf("Ingrese su Segundo Apellido: ");
-		scanf("%30s", yo.Apellido2);
+		print("Ingrese su Primer Nombre: ");
+		scan(yo.Nombre1);
+		print("Ingrese su Segundo Nombre: ");
+		scan(yo.Nombre2);
+		print("Ingrese su Primer Apellido: ");
+		scan(yo.Apellido1);
+		print("Ingrese su Segundo Apellido: ");
+		scan(yo.Apellido2);
 		do{
-			printf("Ingrese su Edad: ");
-			scanf("%10s", CEdad);
+			print("Ingrese su Edad: ");
+			scants(CEdad);
+			printf("-%s-",CEdad);
 			Estado = ctoi(CEdad, &yo.Edad);
 		}while(Estado==Error);
-		printf("\n\n--------------------------------\n");
+		print("\n\n--------------------------------\n");
 		Persona_show(yo);
-		printf("--------------------------------\n");
+		print("--------------------------------\n");
 		Estado = Persona_save("Persona.txt",yo);
 		if(Estado==Ok){
-			printf("Archivo guardado\n");
+			print("Archivo guardado\n");
 		}
 		else{
-			printf("Error al guardar archivo\n");
+			print("Error al guardar archivo\n");
 		}
 	}
 

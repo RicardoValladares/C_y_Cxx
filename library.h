@@ -1,5 +1,6 @@
 #include "unistd.h" 
 #include "stdlib.h" 
+#include "stdio.h" 
 
 void init_chars(char string[], int length);
 
@@ -10,3 +11,11 @@ int clean_char(char ascii, char* character);
 int ctoi(char string[10], int* integer);
 
 void pausa(int segundos);
+
+void print(char string[]);
+
+void println(char string[]);
+
+void scan(char outstring[]);
+
+void scants(char outstring[]);
