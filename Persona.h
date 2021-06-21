@@ -26,6 +26,7 @@
 
 
 /* incluimos solo las librerias propias del compilador */
+//#include "library.h"
 #include <stdio.h> 
 
 typedef enum { Error, Ok } Estado;

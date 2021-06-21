@@ -1,5 +1,5 @@
 /* incluimos encabezados de librerias necesarias para el programa */
-#include <stdio.h> 		//libreria del compilador
+//#include <stdio.h> 		//libreria del compilador
 #include "library.h"		//libreria externa
 /* incluimos encabezados de codigos externos a usar en el programa */
 #include "Persona.h" 		//$ gcc main.c Persona.c -o main.c
@@ -16,7 +16,9 @@ int main(int argc, char *argv[]){
 	Ok = 1;
 	Error = 0;
 	Persona_init(&yo);
-	init_chars(CEdad,10);
+	inichars(CEdad,10);
+
+	itoc(2, "dsgf");
 
 	/* validamos si existen argumentos de apertura para la ejecucion */
 	if(argc==2){
@@ -46,7 +48,6 @@ int main(int argc, char *argv[]){
 		do{
 			print("Ingrese su Edad: ");
 			scants(CEdad);
-			printf("-%s-",CEdad);
 			Estado = ctoi(CEdad, &yo.Edad);
 		}while(Estado==Error);
 		print("\n\n--------------------------------\n");

@@ -1,25 +1,30 @@
 #include "Persona.h" //header donde se encuentran los prototipos de Persona
+//#include "library.h"
+#include <stdio.h>
+
 
 /* enunciamos los prototipos a usar de la libreria externa invocada en el main */
-void init_chars(char string[], int length);
-int clean_char(char ascii, char* character);
+void inichars(char string[], int length);
+int clchar(char ascii, char* character);
 int ctoi(char string[10], int* integer);
+
+void printv(int length, ...);
 
 
 /* Inicializar Persona */
 void Persona_init(Persona *person){
 	person->Edad=0;
-	init_chars(person->Nombre1,30);
-	init_chars(person->Nombre2,30);
-	init_chars(person->Apellido1,30);
-	init_chars(person->Apellido2,30);
+	inichars(person->Nombre1,30);
+	inichars(person->Nombre2,30);
+	inichars(person->Apellido1,30);
+	inichars(person->Apellido2,30);
 }
 
 /* Mostrar Persona */
 void Persona_show(Persona person){
-	printf("Nombres: %s %s\n",person.Nombre1, person.Nombre2);
-	printf("Apellidos: %s %s\n",person.Apellido1, person.Apellido2);
-	printf("Edad: %d\n",person.Edad);
+	printv(5, "Nombres: ", person.Nombre1, " ",person.Nombre2, "\n");
+	printv(5, "Apellidos: ", person.Apellido1, " ",person.Apellido2, "\n");
+	printv(3,"Edad: ",person.Edad,"\n");
 }
 
 /* Guardar Persona */
@@ -49,23 +54,23 @@ int Person_load(char ruta[], Persona *person){
 	int plinea1 = 0;
 	int plinea2 = 0;
 	int plinea3 = 0;
-	init_chars(linea1,71);
-	init_chars(linea2,73);
-	init_chars(linea3,17);
+	inichars(linea1,71);
+	inichars(linea2,73);
+	inichars(linea3,17);
 	int NewLine = 10;
 	int Space = 32;
 	int puntero = 0;
 	int plineal = 0;
 	int pespaciolineal = 0;
 	char cedad[10];
-	init_chars(cedad,10);
+	inichars(cedad,10);
 	FILE *archivo = fopen(ruta, "r");
 	if(archivo == NULL){ 
 		return Error;
 	}
 	else{
 		while((caracter = fgetc(archivo)) != EOF){
-			estado = clean_char(caracter,&climpio);
+			estado = clchar(caracter,&climpio);
 			if(plineal==0){
 				plinea1 = plinea1 + 1;
 				linea1[puntero] = climpio;
@@ -94,7 +99,7 @@ int Person_load(char ruta[], Persona *person){
 			puntero = 0;
 			for(i=8; i<=plinea1; i++){
 				caracter = linea1[i];
-				estado = clean_char(caracter,&climpio);
+				estado = clchar(caracter,&climpio);
 				if(climpio == Space){
 					if(i==8){
 						pespaciolineal = 0;
@@ -107,14 +112,14 @@ int Person_load(char ruta[], Persona *person){
 				//Nombre1
 				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea1[i];
-					estado = clean_char(caracter,&climpio);
+					estado = clchar(caracter,&climpio);
 					person->Nombre1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
 				//Nombre2
 				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea1[i];
-					estado = clean_char(caracter,&climpio);
+					estado = clchar(caracter,&climpio);
 					person->Nombre2[puntero] = climpio;
 					puntero = puntero + 1;
 				}
@@ -124,7 +129,7 @@ int Person_load(char ruta[], Persona *person){
 			puntero = 0;
 			for(i=11; i<=plinea2; i++){
 				caracter = linea2[i];
-				estado = clean_char(caracter,&climpio);
+				estado = clchar(caracter,&climpio);
 				if(climpio == Space){
 					if(i==11){
 						pespaciolineal = 0;
@@ -137,14 +142,14 @@ int Person_load(char ruta[], Persona *person){
 				//Apellido1
 				if(pespaciolineal==0 && climpio!=Space){
 					caracter = linea2[i];
-					estado = clean_char(caracter,&climpio);
+					estado = clchar(caracter,&climpio);
 					person->Apellido1[puntero] = climpio;
 					puntero = puntero + 1;
 				}
 				//Apellido2
 				if(pespaciolineal==1 && climpio!=Space){
 					caracter = linea2[i];
-					estado = clean_char(caracter,&climpio);
+					estado = clchar(caracter,&climpio);
 					person->Apellido2[puntero] = climpio;
 					puntero = puntero + 1;
 				}
@@ -153,10 +158,10 @@ int Person_load(char ruta[], Persona *person){
 			puntero = 0;
 			for(i=6; i<=plinea3; i++){
 				caracter = linea3[i];
-				estado = clean_char(caracter,&climpio);
+				estado = clchar(caracter,&climpio);
 				if(climpio!=Space){
 					caracter = linea3[i];
-					estado = clean_char(caracter,&climpio);
+					estado = clchar(caracter,&climpio);
 					cedad[puntero] = climpio;
 					puntero = puntero + 1;
 				}

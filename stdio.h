@@ -1,11 +1,22 @@
 #include <stdio.h>
+#include <stdarg.h>
+
+
 
 void print(char string[]){
 	printf("%s",string);
 }
 
-void println(char string[]){
-	printf("%s\n",string);
+void printv(int length, ...){
+	int i;
+	char* argumento;
+	va_list list;
+	va_start(list, length);
+	for(i = 0; i<length; i++){
+		argumento = va_arg(list, char*);
+		printf("%s",argumento);
+   	}
+	va_end(list);
 }
 
 void scan(char outstring[]){
