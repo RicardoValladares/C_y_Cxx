@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-
-
 void print(char string[]){
 	printf("%s",string);
 }

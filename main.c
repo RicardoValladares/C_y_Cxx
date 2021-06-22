@@ -1,5 +1,4 @@
 /* incluimos encabezados de librerias necesarias para el programa */
-//#include <stdio.h> 		//libreria del compilador
 #include "library.h"		//libreria externa
 /* incluimos encabezados de codigos externos a usar en el programa */
 #include "Persona.h" 		//$ gcc main.c Persona.c -o main.c
@@ -15,18 +14,16 @@ int main(int argc, char *argv[]){
 	/* incializacion de variables */
 	Ok = 1;
 	Error = 0;
-	Persona_init(&yo);
+	init_Persona(&yo);
 	inichars(CEdad,10);
-
-	itoc(2, "dsgf");
 
 	/* validamos si existen argumentos de apertura para la ejecucion */
 	if(argc==2){
-		Estado = Person_load(argv[1], &yo);
+		Estado = load_Persona(argv[1], &yo);
 		if(Estado==Ok){
 			//printf("\n--------------------------------\n");
 			print("\n--------------------------------\n");
-			Persona_show(yo);
+			show_Persona(yo);
 			print("--------------------------------\n");
 			print("Archivo cargado\n");
 		}
@@ -51,9 +48,9 @@ int main(int argc, char *argv[]){
 			Estado = ctoi(CEdad, &yo.Edad);
 		}while(Estado==Error);
 		print("\n\n--------------------------------\n");
-		Persona_show(yo);
+		show_Persona(yo);
 		print("--------------------------------\n");
-		Estado = Persona_save("Persona.txt",yo);
+		Estado = save_Persona("Persona.txt",yo);
 		if(Estado==Ok){
 			print("Archivo guardado\n");
 		}

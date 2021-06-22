@@ -7,12 +7,12 @@
 void inichars(char string[], int length);
 int clchar(char ascii, char* character);
 int ctoi(char string[10], int* integer);
-
+void itoc(int integer, char string[10]);
 void printv(int length, ...);
 
 
 /* Inicializar Persona */
-void Persona_init(Persona *person){
+void init_Persona(Persona *person){
 	person->Edad=0;
 	inichars(person->Nombre1,30);
 	inichars(person->Nombre2,30);
@@ -21,14 +21,17 @@ void Persona_init(Persona *person){
 }
 
 /* Mostrar Persona */
-void Persona_show(Persona person){
+void show_Persona(Persona person){
 	printv(5, "Nombres: ", person.Nombre1, " ",person.Nombre2, "\n");
 	printv(5, "Apellidos: ", person.Apellido1, " ",person.Apellido2, "\n");
-	printv(3,"Edad: ",person.Edad,"\n");
+	char CEdad[10];
+	inichars(CEdad,10);
+	itoc(person.Edad, CEdad);
+	printv(3,"Edad: ",CEdad,"\n");
 }
 
 /* Guardar Persona */
-int Persona_save(char ruta[], Persona person){
+int save_Persona(char ruta[], Persona person){
 	FILE *archivo = fopen(ruta,"w");
 	if(archivo == NULL){ 
 		return Error;
@@ -43,11 +46,11 @@ int Persona_save(char ruta[], Persona person){
 }
 
 /* Cargar Persona */
-int Person_load(char ruta[], Persona *person){
+int load_Persona(char ruta[], Persona *person){
 	int i;
 	Estado estado;
 	char caracter, climpio;
-	Persona_init(person);
+	init_Persona(person);
 	char linea1[71];
 	char linea2[73];
 	char linea3[17];

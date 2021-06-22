@@ -1,3 +1,4 @@
+#include <stdlib.h>
 
 int length(char string[]){
 	int puntero=0;
@@ -111,47 +112,24 @@ int ctoi(char string[10], int* integer){
 }
 
 void itoc(int integer, char string[10]){
-	/*
-	253 to char
-
-	253 mod 10 = 3		->3
-	253 / 10 = (25).3
-
-	25 mod 10 = 5		->5 
-	25 / 10 = (2).5
-
-	2 mod 10 = 2		->2
-	2 / 10 = (0).2
-	*/
-
-	int byte;
-	int numero = 253;
-	int puntero;
-	char gnirts[10];
-	for(puntero=0; puntero<10; puntero++){
-		gnirts[puntero] = 0;
-	}
+	int byte, puntero;
+	int numero = integer;
+	int psucecion = 0;
+	if(integer<0){ psucecion=1; numero = abs(numero); }
+	char buffer[10];
 	puntero = 0;
 	do{
 		byte = numero % 10;
-
-		gnirts[puntero] = byte + '0';
-
+		buffer[puntero] = byte + '0';
 		numero = numero / 10;
-
 		puntero = puntero + 1;
 	}while(numero!=0);
-
 	for(puntero=0; puntero<10; puntero++) {
-		byte = gnirts[9-puntero];
-		if(byte<=57 && byte>=48){
-			string[puntero] = 
-		}
-		
+		byte = buffer[9-puntero] - '0';
+		if(byte<=9 && byte>=0){
+			string[psucecion] = byte + '0';
+			psucecion++;
+		}	
 	}
-
-	printf("%s\n", gnirts);
-
-
-
+	if(integer<0){ string[0] = '-'; }
 }

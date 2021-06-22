@@ -39,11 +39,11 @@ typedef struct{
 	int Edad;
 } Persona;
 
-void Persona_init(Persona *person);
+void init_Persona(Persona *person);
 
-void Persona_show(Persona person);
+void show_Persona(Persona person);
 
-int Persona_save(char ruta[], Persona person);
+int save_Persona(char ruta[], Persona person);
 
-int Person_load(char ruta[], Persona *person);
+int load_Persona(char ruta[], Persona *person);
 
