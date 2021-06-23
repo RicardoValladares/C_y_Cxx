@@ -1,27 +1,25 @@
 #include "unistd.h" 
-#include "stdlib.h" 
 #include "stdio.h" 
+#include "stdlib.h"
 
-void inichars(char string[], int length); //
+void print(char* string); //print chars
+char* scan(); //read chars not space
+void pausa(int segundos); //pausa
+int ctoi(char* string); //char to int
+char* itoc(int integer); //int to char
 
-int cpchars(char INstring[], char OUTstring[], int OUTlength);
 
-int clchar(char ascii, char* character);
 
-int ctoi(char string[10], int* integer);
+char* concat(int length, ...);
 
-void pausa(int segundos);
 
-void print(char string[]);
-
-void scan(char outstring[]);
-
-void scants(char outstring[]);
-
-int length(char string[]);
-
-void concat(char INstring1[], char INstring2[], char OUTstring[]);
-
-void printv(int length, ...);
-
-void itoc(int integer, char string[10]);
+/*
+ //pausa 5 second
+int length(char string[]); //return size of chars
+//int cpchars(char INstring[], char OUTstring[], int OUTlength); //copy chars in other chars
+//int clchar(char ascii, char* character); //code ascii to char valido
+ //concat chars1 + chars2 = chars
+//void vprint(int length, ...); //print varibles
+int fprint(char filename[], int length, ...); //file print
+int fscan(char filename[], char** chars);
+*/

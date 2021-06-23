@@ -21,7 +21,6 @@ int main(int argc, char *argv[]){
 	if(argc==2){
 		Estado = load_Persona(argv[1], &yo);
 		if(Estado==Ok){
-			//printf("\n--------------------------------\n");
 			print("\n--------------------------------\n");
 			show_Persona(yo);
 			print("--------------------------------\n");

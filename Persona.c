@@ -8,7 +8,8 @@ void inichars(char string[], int length);
 int clchar(char ascii, char* character);
 int ctoi(char string[10], int* integer);
 void itoc(int integer, char string[10]);
-void printv(int length, ...);
+void vprint(int length, ...);
+int fprint(char filename[], int length, ...);
 
 
 /* Inicializar Persona */
@@ -22,27 +23,25 @@ void init_Persona(Persona *person){
 
 /* Mostrar Persona */
 void show_Persona(Persona person){
-	printv(5, "Nombres: ", person.Nombre1, " ",person.Nombre2, "\n");
-	printv(5, "Apellidos: ", person.Apellido1, " ",person.Apellido2, "\n");
+	/*vprint(5, "Nombres: ", person.Nombre1, " ",person.Nombre2, "\n");
+	vprint(5, "Apellidos: ", person.Apellido1, " ",person.Apellido2, "\n");
 	char CEdad[10];
 	inichars(CEdad,10);
 	itoc(person.Edad, CEdad);
-	printv(3,"Edad: ",CEdad,"\n");
+	vprint(3,"Edad: ",CEdad,"\n");*/
+	printf("-%c-%d-\n",EOF,EOF);
 }
 
 /* Guardar Persona */
 int save_Persona(char ruta[], Persona person){
-	FILE *archivo = fopen(ruta,"w");
-	if(archivo == NULL){ 
-		return Error;
-	}
-	else{	
-		fprintf(archivo,"Nombres: %s %s\n",person.Nombre1, person.Nombre2);
-		fprintf(archivo,"Apellidos: %s %s\n",person.Apellido1, person.Apellido2);
-		fprintf(archivo,"Edad: %d\n",person.Edad);
-		fclose(archivo);
-		return Ok;
-	}
+	Estado estado;
+	estado = fprint(ruta, 5, "Nombres: ",person.Nombre1, " ", person.Nombre2,"\n");
+	estado = fprint(ruta, 5, "Apellidos: ",person.Apellido1, " ", person.Apellido2,"\n");
+	char CEdad[10];
+	inichars(CEdad,10);
+	itoc(person.Edad, CEdad);
+	estado = fprint(ruta, 3, "Edad: ",CEdad,"\n");
+	return estado;
 }
 
 /* Cargar Persona */
@@ -72,7 +71,7 @@ int load_Persona(char ruta[], Persona *person){
 		return Error;
 	}
 	else{
-		while((caracter = fgetc(archivo)) != EOF){
+		while((caracter = fgetc(archivo)) != EOF){ // char read("url",i)
 			estado = clchar(caracter,&climpio);
 			if(plineal==0){
 				plinea1 = plinea1 + 1;

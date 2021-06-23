@@ -1,54 +1,108 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void print(char string[]){
+void print(char* string){
 	printf("%s",string);
 }
-
-void printv(int length, ...){
-	int i;
-	char* argumento;
-	va_list list;
-	va_start(list, length);
-	for(i = 0; i<length; i++){
-		argumento = va_arg(list, char*);
-		printf("%s",argumento);
-   	}
-	va_end(list);
-}
-
-void scan(char outstring[]){
-	int i = 0;
-	int byte = 0;
-	char string[30];
-	for(i=0; i<30; i++){
-		outstring[i] = 0;
-		string[i] = 0;
-	}
-	fgets(string, 31, stdin);
-	for(i=0; i<30; i++){
-		byte = string[i];
-		if(byte>=32 && byte<=126){
-			outstring[i] = byte;
-		}
-	}
-}
-
-void scants(char outstring[]){
+char* scan(){
+	static char outstring[30];
 	int i = 0;
 	int puntero = 0;
 	int byte = 0;
 	char string[30];
-	for(i=0; i<10; i++){
+	for(i=0; i<30; i++){
 		outstring[i] = 0;
 		string[i] = 0;
 	}
-	fgets(string, 11, stdin);
-	for(i=0; i<10; i++){
+	fgets(string, (30+1), stdin);
+	for(i=0; i<30; i++){
 		byte = string[i];
 		if(byte>=33 && byte<=126){
 			outstring[puntero] = byte;
 			puntero = puntero + 1;
 		}
 	}
+	return outstring;
 }
+
+/*int fprint(char filename[], int length, ...){
+	FILE *file = fopen(filename,"a+");
+	if(file == NULL){
+		return 0;
+	}
+	else{	
+		int i;
+		char* argumento;
+		va_list list;
+		va_start(list, length);
+		for(i = 0; i<length; i++){
+			argumento = va_arg(list, char*);
+			fprintf(file,"%s",argumento);
+		}
+		va_end(list);
+		fclose(file);
+		return 1;
+	}
+}
+int fscan(char filename[], char** chars){
+	FILE *archivo = fopen(filename, "r");
+	char caracter;
+	int estado, x, y;
+	x=0;
+	y=0;
+	if(archivo == NULL){ 
+		return 0;
+	}
+	else{
+		while((caracter = fgetc(archivo)) != EOF){ // char read("url",i)
+			int byte = caracter;
+			if(byte>=33 && byte<=126){
+				caracter = byte;
+			}
+			else{
+				caracter=32;
+			}
+
+			if(caracter==10){ 
+				chars[x][y] = caracter;
+				y++;
+				//chars[x][y]
+
+				//NewLine
+				//plineal = plineal + 1;
+				//puntero = 0;
+			}
+			else{
+				chars[x][y] = caracter;
+				x++;
+			}
+			//puntero = puntero + 1;
+		}
+		fclose(archivo);
+		return 1;
+	}
+}
+
+/*
+int fscan(char filename[], int length, ...){
+	FILE *file = fopen(filename,"a+");
+	if(file == NULL){
+		return 0;
+	}
+	else{	
+		int i;
+		char* argumento;
+		va_list list;
+		va_start(list, length);
+		for(i = 0; i<length; i++){
+			argumento = va_arg(list, char*);
+			fprintf(file,"%s",argumento);
+		}
+		va_end(list);
+		fclose(file);
+		return 1;
+	}
+}
+*/
+
+
