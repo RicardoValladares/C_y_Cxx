@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-//#define va_start(__list,__parmN) __list = (char *)((unsigned long)&(__parmN) \ + (((sizeof(__parmN)+7)/8)*8))
-
 int ctoi(char string[10]){
 	int byte, point;
 	int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};

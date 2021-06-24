@@ -5,17 +5,16 @@
 /* funcion main con argumentos */
 int main(int argc, char *argv[]){
 
-	char* cn1 = scan(10);
-	char* cn2 = scan(10);
-
-	int n1 = ctoi(cn1);
-	int n2 = ctoi(cn2);
-
-
+	char* input;
+	int n1 = ctoi(input = scan());
+	int n2 = ctoi(input = scan());
 	int suma = n1 + n2;
 	char* csuma = itoc(suma);
+	print(itoc(n1));
+	print("+");
+	print(itoc(n2));
+	print("=");
 	print(csuma);
-
 
 	
 	/*char* concatenado = */ //concat(2,"hola","mundo");

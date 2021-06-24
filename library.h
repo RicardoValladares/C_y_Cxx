@@ -3,7 +3,7 @@
 #include "stdlib.h"
 
 void print(char* string); //print chars
-char* scan(int length); //read chars not space
+char* scan(); //read chars not space
 void pausa(int segundos); //pausa
 int ctoi(char* string); //char to int
 char* itoc(int integer); //int to char
