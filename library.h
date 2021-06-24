@@ -2,15 +2,15 @@
 #include "stdio.h" 
 #include "stdlib.h"
 
-void print(char* string); //print chars
-char* scan(); //read chars not space
+void print(char string[256]); //print chars
+void scan(char outstring[256]); //read chars not space
 void pausa(int segundos); //pausa
 int ctoi(char* string); //char to int
 char* itoc(int integer); //int to char
 
 
 
-char* concat(int length, ...);
+void concat(char string[],int length, ...);
 
 
 /*

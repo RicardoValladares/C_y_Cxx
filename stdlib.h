@@ -11,6 +11,7 @@ int ctoi(char string[10]){
 		if(byte<=57 && byte>=48){
 			byte = string[9-point] - '0';
 			integer = integer + (byte *sucecion[psucecion++]);
+			printf("%s\n", "entro");
 		}
 	}
 	if(string[0]==45 && integer!=0){
@@ -55,80 +56,27 @@ char* itoc(int integer){
 }*/
 
 
-char* concat(int length, ...){
-	/*char* argumento;
-	char* string;
-	int byte;
+void concat(char string[],int length, ...){
+	char* argumento;
+	int larg=0;
+	int parg;
+	int point;
+	char byte;
 	va_list list;
 	va_start(list, length);
-	int i;*/
-
-/*
-	char OUTstring[10];
-	int OUTpuntero=0;
-	int p;
-	for(i=0; i<length; i++){
+	//static char string[256];
+	for(parg=0; parg<length; parg++){
 		argumento = va_arg(list, char*);
-		int d = length(argumento);
-		printf("%d\n",argumento);
-		p=0;
-		do{
-			
-			byte = argumento[p];
-			
-			if((byte>=32 && byte<=126)||byte==10||byte==9){
-				//printf("%d\n",byte);
-				OUTstring[OUTpuntero] = byte;
-				//printf("%c\n",OUTstring[OUTpuntero]);
-				OUTpuntero = OUTpuntero + 1;
-			}
-
-			p++;
-		}while((byte>=32 && byte<=126)||byte==10||byte==9);
-		//printf("%d\n",i);
-   	}
-	va_end(list);
-
-*/
-	/*
-	// EL SIZE DE SALIDA SERA DE 256 AUNQUE NO USE TODO PERO EL NUMERO DE ITERACIONES SERA IGUAL A LA SUMA
-	int suma=0;
-	for(i=0; i<length; i++){
-		argumento = va_arg(list, char*);
-		int puntero=0;
-		char byte;
-		byte = string[0];
+		point = 0;
+		byte = argumento[0];
 		while(byte>=32 && byte<=126){
-			puntero = puntero+1;
-			byte = argumento[puntero];
-			suma++;
+			string[larg] = byte;
+			point = point+1;
+			byte = argumento[point];
+			larg++;
 		}
 	}
 	va_end(list);
-	//printf("%d\n",suma);
-	*/
-
-	return "OK";
-
-
-	/*
-	int OUTpuntero=0;
-	int INpuntero=0;
-	int byte;
-	byte = INstring1[0];
-	while(byte>=32 && byte<=126){
-		OUTstring[OUTpuntero] = byte;
-		OUTpuntero = OUTpuntero + 1;
-		INpuntero = INpuntero + 1;
-		byte = INstring1[INpuntero];
-	}
-	INpuntero = 0;
-	byte = INstring2[0];
-	while(byte>=32 && byte<=126){
-		OUTstring[OUTpuntero] = byte;
-		OUTpuntero = OUTpuntero + 1;
-		INpuntero = INpuntero + 1;
-		byte = INstring2[INpuntero];
-	}*/
+	//printf("%d -%s-\n",larg,string);
 }
 

@@ -4,8 +4,8 @@
 void print(char* string){
 	printf("%s",string);
 }
-char* scan(){
-	static char outstring[30];
+void scan(char outstring[]){
+	//static char outstring[30];
 	int i = 0;
 	int puntero = 0;
 	int byte = 0;
@@ -18,7 +18,7 @@ char* scan(){
 			puntero = puntero + 1;
 		}
 	}
-	return outstring;
+	//return outstring;
 }
 
 /*int fprint(char filename[], int length, ...){
