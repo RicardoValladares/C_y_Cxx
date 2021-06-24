@@ -10,12 +10,12 @@ char* itoc(int integer); //int to char
 
 
 
-char* concat(int length, ...);
-
+void concat(int lengt, ...);
+int length(char string[]);
 
 /*
  //pausa 5 second
-int length(char string[]); //return size of chars
+ //return size of chars
 //int cpchars(char INstring[], char OUTstring[], int OUTlength); //copy chars in other chars
 //int clchar(char ascii, char* character); //code ascii to char valido
  //concat chars1 + chars2 = chars

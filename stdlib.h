@@ -51,36 +51,70 @@ char* itoc(int integer){
 	while(byte>=32 && byte<=126){
 		puntero = puntero+1;
 		byte = string[puntero];
+		printf("%c %d\n",byte,puntero);
 	}
 	return puntero;
-}
-*/
+}*/
 
-char* concat(int length, ...){
+
+void concat(int lengt, ...){
 	char* argumento;
 	char* string;
 	int byte;
 	va_list list;
-	va_start(list, length);
+	va_start(list, lengt);
 	int i;
 
-	char* OUTstring;
-	int OUTpuntero;
-	do{
+/*
+	char OUTstring[10];
+	int OUTpuntero=0;
+	int p;
+	for(i=0; i<lengt; i++){
 		argumento = va_arg(list, char*);
-		OUTpuntero = 0;
-		byte = argumento[OUTpuntero];
-		while((byte>=32 && byte<=126)||byte==10||byte==9){
-			OUTstring[OUTpuntero] = byte;
-			OUTpuntero = OUTpuntero + 1;
-			INpuntero = INpuntero + 1;
-		}
-		
-		printf("%c\n",argumento[0]);
-   	}while(argumento[0]>=32 && argumento[0]<=126);
+		int d = length(argumento);
+		printf("%d\n",argumento);
+		p=0;
+		do{
+			
+			byte = argumento[p];
+			
+			if((byte>=32 && byte<=126)||byte==10||byte==9){
+				//printf("%d\n",byte);
+				OUTstring[OUTpuntero] = byte;
+				//printf("%c\n",OUTstring[OUTpuntero]);
+				OUTpuntero = OUTpuntero + 1;
+			}
+
+			p++;
+		}while((byte>=32 && byte<=126)||byte==10||byte==9);
+		//printf("%d\n",i);
+   	}
 	va_end(list);
 
-	return "OK";
+*/
+	int suma=0;
+	for(i=0; i<lengt; i++){
+		argumento = va_arg(list, char*);
+		int puntero=0;
+		char byte;
+		byte = string[0];
+		while(byte>=32 && byte<=126){
+			puntero = puntero+1;
+			byte = argumento[puntero];
+			suma++;
+		}
+	}
+	va_end(list);
+	printf("%d\n",suma);
+
+
+
+
+
+
+
+	//printf("%s\n",OUTstring);
+	//return "OK";
 
 
 	/*

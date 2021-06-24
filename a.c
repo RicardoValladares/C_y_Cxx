@@ -13,7 +13,11 @@ int main(int argc, char *argv[]){
 	char* csuma = itoc(suma);
 	print(csuma);*/
 
-	char* concatenado = concat(2,"hola","mundo");
+
+	//char a = 'A';
+	//printf("%d\n",(length("%c",a)));
+	/*char* concatenado = */concat(2,"hola","mundo");
+	//print(concatenado);
 
 	/* ejecutamos salida de la aplicacion con una pausa de 5 segundos 
 	pausa(5);*/
