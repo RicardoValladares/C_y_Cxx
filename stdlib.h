@@ -106,7 +106,7 @@ void concat(int lengt, ...){
 	}
 	va_end(list);
 	printf("%d\n",suma);
-
+	char OUTstring[suma];
 
 
 
