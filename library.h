@@ -10,7 +10,7 @@ char* itoc(int integer); //int to char
 
 
 
-void concat(int length, ...);
+char* concat(int length, ...);
 
 
 /*

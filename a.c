@@ -5,9 +5,10 @@
 /* funcion main con argumentos */
 int main(int argc, char *argv[]){
 
-	char* input;
-	int n1 = ctoi(input = scan());
-	int n2 = ctoi(input = scan());
+	/*
+	char* temp;
+	int n1 = ctoi(temp = scan());
+	int n2 = ctoi(temp = scan());
 	int suma = n1 + n2;
 	char* csuma = itoc(suma);
 	print(itoc(n1));
@@ -15,10 +16,10 @@ int main(int argc, char *argv[]){
 	print(itoc(n2));
 	print("=");
 	print(csuma);
-
+	*/
 	
-	/*char* concatenado = */ //concat(2,"hola","mundo");
-	//print(concatenado);
+	char* temp = concat(2,"hola","mundo");
+	print(temp);
 
 	/* ejecutamos salida de la aplicacion con una pausa de 5 segundos 
 	pausa(5);*/

@@ -55,13 +55,13 @@ char* itoc(int integer){
 }*/
 
 
-void concat(int length, ...){
-	char* argumento;
+char* concat(int length, ...){
+	/*char* argumento;
 	char* string;
 	int byte;
 	va_list list;
 	va_start(list, length);
-	int i;
+	int i;*/
 
 /*
 	char OUTstring[10];
@@ -90,6 +90,8 @@ void concat(int length, ...){
 	va_end(list);
 
 */
+	/*
+	// EL SIZE DE SALIDA SERA DE 256 AUNQUE NO USE TODO PERO EL NUMERO DE ITERACIONES SERA IGUAL A LA SUMA
 	int suma=0;
 	for(i=0; i<length; i++){
 		argumento = va_arg(list, char*);
@@ -103,16 +105,10 @@ void concat(int length, ...){
 		}
 	}
 	va_end(list);
-	printf("%d\n",suma);
-	char OUTstring[suma];
+	//printf("%d\n",suma);
+	*/
 
-
-
-
-
-
-	//printf("%s\n",OUTstring);
-	//return "OK";
+	return "OK";
 
 
 	/*
