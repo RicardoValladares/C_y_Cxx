@@ -4,18 +4,18 @@
 void print(char* string){
 	printf("%s",string);
 }
-char* scan(){
-	static char outstring[30];
+char* scan(int length){
+	char* outstring;
 	int i = 0;
 	int puntero = 0;
 	int byte = 0;
-	char string[30];
-	for(i=0; i<30; i++){
+	char string[length];
+	for(i=0; i<length; i++){
 		outstring[i] = 0;
 		string[i] = 0;
 	}
-	fgets(string, (30+1), stdin);
-	for(i=0; i<30; i++){
+	fgets(string, (length+1), stdin);
+	for(i=0; i<length; i++){
 		byte = string[i];
 		if(byte>=33 && byte<=126){
 			outstring[puntero] = byte;

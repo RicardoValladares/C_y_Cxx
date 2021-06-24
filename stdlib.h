@@ -3,7 +3,7 @@
 
 //#define va_start(__list,__parmN) __list = (char *)((unsigned long)&(__parmN) \ + (((sizeof(__parmN)+7)/8)*8))
 
-int ctoi(char* string){
+int ctoi(char string[10]){
 	int byte, point;
 	int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
 	int psucecion=0;
@@ -57,19 +57,19 @@ char* itoc(int integer){
 }*/
 
 
-void concat(int lengt, ...){
+void concat(int length, ...){
 	char* argumento;
 	char* string;
 	int byte;
 	va_list list;
-	va_start(list, lengt);
+	va_start(list, length);
 	int i;
 
 /*
 	char OUTstring[10];
 	int OUTpuntero=0;
 	int p;
-	for(i=0; i<lengt; i++){
+	for(i=0; i<length; i++){
 		argumento = va_arg(list, char*);
 		int d = length(argumento);
 		printf("%d\n",argumento);
@@ -93,7 +93,7 @@ void concat(int lengt, ...){
 
 */
 	int suma=0;
-	for(i=0; i<lengt; i++){
+	for(i=0; i<length; i++){
 		argumento = va_arg(list, char*);
 		int puntero=0;
 		char byte;
