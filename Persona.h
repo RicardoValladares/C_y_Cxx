@@ -26,10 +26,11 @@
 
 
 /* incluimos solo las librerias propias del compilador */
-//#include "library.h"
 #include <stdio.h> 
 
-typedef enum { Error, Ok } Estado;
+#define Error -1
+#define Warning 0
+#define Ok 1
 
 typedef struct{
 	char Nombre1[30];
@@ -39,11 +40,11 @@ typedef struct{
 	int Edad;
 } Persona;
 
-void init_Persona(Persona *person);
+void Persona_init(Persona *person);
 
-void show_Persona(Persona person);
+void Persona_show(Persona person);
 
-int save_Persona(char ruta[], Persona person);
+int Persona_save(char ruta[], Persona person);
 
-int load_Persona(char ruta[], Persona *person);
+int Person_load(char ruta[], Persona *person);
 

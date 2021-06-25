@@ -1,24 +1,52 @@
-#include <stdlib.h>
-#include <stdarg.h>
 
-int ctoi(char string[10]){
-	int byte, point;
-	int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
-	int psucecion=0;
-	int integer=0;
-	for(point=0; point<10; point++) {
-		byte = string[9-point];
-		if(byte<=57 && byte>=48){
-			byte = string[9-point] - '0';
-			integer = integer + (byte *sucecion[psucecion++]);
-			printf("%s\n", "entro");
-		}
+int clean_char(char ascii, char* character){
+	int byte = ascii;
+	if(byte>=33 && byte<=126){
+		*character = byte;
+		return 1;
 	}
-	if(string[0]==45 && integer!=0){
-		integer = 0 - integer;
+	else{
+		*character = 32;
+		return 0;
 	}
-	return integer;
 }
+
+int ctoi(char string[10], int* integer){  
+	int estado;
+	int counter = 0;
+	int byte, point;
+		int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+		int psucecion=0;
+		for(point=0; point<10; point++) {
+			byte = string[9-point];
+			if(byte<=57 && byte>=48){
+				byte = string[9-point] - '0';
+				*integer = *integer + (byte *sucecion[psucecion++]);
+				counter++;
+			}
+		}
+		if(string[0]==45 && *integer!=0){
+			*integer = 0 - *integer;
+		}
+		if(counter>0){
+			return 1;
+		}
+		else{
+			*integer = 0;
+			return 0;
+		}
+}
+
+
+
+
+
+
+
+
+
+/*
+
 char* itoc(int integer){
 	static char string[10];
 	char buffer[10];
@@ -42,18 +70,6 @@ char* itoc(int integer){
 	}
 	return string;
 }
-
-/*int length(char string[]){
-	int puntero=0;
-	char byte;
-	byte = string[0];
-	while(byte>=32 && byte<=126){
-		puntero = puntero+1;
-		byte = string[puntero];
-		printf("%c %d\n",byte,puntero);
-	}
-	return puntero;
-}*/
 
 
 void concat(char string[],int length, ...){
@@ -80,3 +96,6 @@ void concat(char string[],int length, ...){
 	//printf("%d -%s-\n",larg,string);
 }
 
+
+
+*/
