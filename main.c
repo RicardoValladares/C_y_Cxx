@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 			printf("Ingrese su Edad: ");
 			scanf("%10s", CEdad);
 			Estado = ctoi(CEdad, &yo.Edad);
-		}while(Estado==Error || Estado==Warning);
+		}while(Estado==Error);
 		printf("\n\n--------------------------------\n");
 		Persona_show(yo);
 		printf("--------------------------------\n");

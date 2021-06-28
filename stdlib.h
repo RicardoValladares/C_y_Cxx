@@ -1,5 +1,6 @@
+#include <stdlib.h>
 
-int clean_char(char ascii, char* character){
+int clean(char ascii, char* character){
 	int byte = ascii;
 	if(byte>=33 && byte<=126){
 		*character = byte;
@@ -7,14 +8,15 @@ int clean_char(char ascii, char* character){
 	}
 	else{
 		*character = 32;
-		return 0;
+		return -1;
 	}
 }
 
 int ctoi(char string[10], int* integer){  
 	int estado;
 	int counter = 0;
-	int byte, point;
+	int counter2 = 0;
+	int byte, nextbyte, point;
 		int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
 		int psucecion=0;
 		for(point=0; point<10; point++) {
@@ -33,45 +35,46 @@ int ctoi(char string[10], int* integer){
 		}
 		else{
 			*integer = 0;
-			return 0;
+			return -1;
 		}
 }
 
 
-
-
-
-
-
-
-
-/*
-
-char* itoc(int integer){
-	static char string[10];
-	char buffer[10];
-	int byte; 
+int itoc(int integer, char string[10]){
 	int point = 0;
-	int psucecion = 0;
-	if(integer<0){ string[0] = '-'; }
-	if(integer<0){ psucecion=1; integer = abs(integer); }
-	do{
-		byte = integer % 10;
-		buffer[point] = byte + '0';
-		integer = integer / 10;
-		point = point + 1;
-	}while(integer!=0);
-	for(point=0; point<10; point++) {
-		byte = buffer[9-point] - '0';
-		if(byte<=9 && byte>=0){
-			string[psucecion] = byte + '0';
-			psucecion++;
-		}	
+	if(integer>999999999 || integer<999999999){
+		for(point=0; point<10; point++){
+			string[point] = 0;
+		}
+		return -1;
 	}
-	return string;
+	else{
+		char buffer[10];
+		int byte; 
+		int psucecion = 0;
+		if(integer<0){ 
+			string[0] = '-'; 
+			psucecion=1; 
+			integer = abs(integer); 
+		}
+		do{
+			byte = integer % 10;
+			buffer[point] = byte + '0';
+			integer = integer / 10;
+			point = point + 1;
+		}while(integer!=0);
+		for(point=0; point<10; point++) {
+			byte = buffer[9-point] - '0';
+			if(byte<=9 && byte>=0){
+				string[psucecion] = byte + '0';
+				psucecion++;
+			}	
+		}
+		return 1;
+	}
 }
 
-
+/*
 void concat(char string[],int length, ...){
 	char* argumento;
 	int larg=0;

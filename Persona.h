@@ -29,7 +29,6 @@
 #include <stdio.h> 
 
 #define Error -1
-#define Warning 0
 #define Ok 1
 
 typedef struct{

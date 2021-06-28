@@ -3,8 +3,15 @@ main.bin: main.c
 
 all:
 	gcc main.c Persona.c -o main.bin
-	i686-w64-mingw32-gcc main.c Persona.c -o main.exe
 
 clean:
 	rm main.bin
-	rm main.exe
+
+compile:
+	clear
+	gcc a.c -o a.bin
+
+run:
+	clear
+	./a.bin
+

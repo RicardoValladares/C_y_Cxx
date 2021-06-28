@@ -2,14 +2,14 @@
 #include "library.h"		//libreria externa
 
 int main(int argc, char *argv[]){
-	int num;
-	char cars[10] = "253";
-	int estado = ctoi(cars,&num);
-	if(estado==0){
-		printf("ERROR %d\n",num);
+	int num = -999999999;
+	char cars[10];
+	int estado = itoc(num,cars);
+	if(estado==-1){
+		printf("ERROR %s\n",cars);
 	}
 	else{
-		printf("%d\n",num);
+		printf("%s\n",cars);
 	}
 	return 0;
 }
