@@ -5,20 +5,23 @@ void print(char* string){
 	printf("%s",string);
 }
 void scan(char outstring[]){
-	//static char outstring[30];
 	int i = 0;
 	int puntero = 0;
 	int byte = 0;
 	char string[30];
-	fgets(string, (30+1), stdin);
+	fgets(string, (30), stdin);
+	//printf("%s",string);
 	for(i=0; i<30; i++){
 		byte = string[i];
-		if(byte>=33 && byte<=126){
+		if(byte>=32 && byte<=126){
 			outstring[puntero] = byte;
 			puntero = puntero + 1;
 		}
+		else{
+			break;
+		}
 	}
-	//return outstring;
+	
 }
 
 /*int fprint(char filename[], int length, ...){
