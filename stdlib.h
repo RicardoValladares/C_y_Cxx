@@ -1,132 +1,112 @@
-#include <stdlib.h>
 #include <stdarg.h>
 
-int atoc(char ascii, char* character){
-	int byte = ascii;
-	if(byte>=33 && byte<=126){
-		*character = byte;
+int atoc(int ascii, char* character){
+	if(ascii>=32 && ascii<=126){
+		*character = ascii;
 		return 1;
 	}
 	else{
-		*character = 32;
+		*character = 0;
 		return -1;
 	}
 }
 
 int ctoi(char string[10], int* integer){  
-	int estado;
-	int counter = 0;
-	int counter2 = 0;
-	int byte, nextbyte, point;
-		int sucecion[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
-		int psucecion=0;
-		for(point=0; point<10; point++) {
-			byte = string[9-point];
-			if(byte==57){
-				counter2++;
-			}
-			if(byte<=57 && byte>=48){
-				byte = string[9-point] - '0';
-				*integer = *integer + (byte *sucecion[psucecion++]);
-				counter++;
-			}
+	int ascii, point;
+	int digits = 0;
+	int overflow = 0;
+	int unit[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+	for(point=0; point<10; point++) {
+		ascii = string[9-point];
+		if(ascii==57){
+			overflow++;
 		}
-		if(string[0]==45 && *integer!=0){
-			*integer = 0 - *integer;
+		if(ascii<=57 && ascii>=48){
+			ascii = string[9-point] - '0';
+			*integer = *integer + (ascii * unit[digits++]);
 		}
-		if(counter2==10){
-			*integer = 0;
-			return -1;
-		}
-		if(counter>0){
-			return 1;
-		}
-		else{
-			*integer = 0;
-			return -1;
-		}
+	}
+	if(string[0]==45 && *integer!=0){
+		*integer = 0 - *integer;
+	}
+	if(overflow<10 && digits>0){
+		return 1;
+	}
+	else{
+		*integer = 0;
+		return -1;
+	}
 }
 
 
 int itoc(int integer, char string[10]){
-		int point = 0;
-		char buffer[10];
-		int byte; 
-		int psucecion = 0;
-		if(integer<0){ 
-			string[0] = '-'; 
-			psucecion=1; 
-			integer = abs(integer); 
-		}
-		do{
-			byte = integer % 10;
-			buffer[point] = byte + '0';
-			integer = integer / 10;
-			point = point + 1;
-		}while(integer!=0);
-		for(point=0; point<10; point++) {
-			byte = buffer[9-point] - '0';
-			if(byte<=9 && byte>=0){
-				string[psucecion] = byte + '0';
-				psucecion++;
-			}	
-		}
-		return 1;
+	int digit;
+	int point = 0;
+	int length = 0;
+	char buffer[10];
+	if(integer<0){ 
+		string[length] = '-'; 
+		length = 1; 
+		integer = integer * (-1); 
+	}
+	do{
+		digit = integer % 10;
+		buffer[point] = digit + '0';
+		integer = integer / 10;
+		point++;
+	}while(integer);
+	for(point=0; point<10; point++) {
+		digit = buffer[9-point] - '0';
+		if(digit<=9 && digit>=0){
+			string[length] = digit + '0';
+			length++;
+		}	
+	}
+	return 1;
 }
 
-
-
-
-
-
-
-
-
-void concat(char string[], char *first, ...){
-
-	int primero = 1;
-	int punterof = -1;
-	
-	int larg=0;
+int concat(char string[], char *first, ...){
 	int point;
-	char byte;
-	va_list argptr;
-    char *next;
-    va_start (argptr, first);
-    next = first;
-    while (next) {
+	char character;
+	char *token;
+	int length=0;
+	int pointfirst = 0;
+	int isfirst = 1;	
+	va_list args;
+	va_start(args, first);
+	token = first;
+    while(token){
         point = 0;
-		byte = next[0];
-        while(byte>=32 && byte<=126){
-        	if(primero==1){
-        		punterof++;
+		character = token[point];
+        while(character>=' ' && character<='~'){
+        	if(isfirst==1){
+        		pointfirst++;
         	}
-   			string[larg] = byte;
+   			string[length] = character;
    			point = point+1;
-   			byte = next[point];
-   			larg++;
+   			character = token[point];
+   			length++;
    		}
-   		primero = 0;
-        next = va_arg(argptr, char*);
+   		isfirst = 0;
+        token = va_arg(args, char*);
     }
-    larg--;
-    va_end (argptr);
-	//printf("%d",larg);
-	int i;
-	for(i=0;i<=punterof;i++){
-
-		
-		
-		if( string[larg-i] == first[punterof-i] ){
-			string[larg-i] = 0;
+    length--;
+    pointfirst--;
+    va_end(args);
+	for(point=0;point<=pointfirst;point++){
+		if(string[length-point] == first[pointfirst-point]){
+			string[length-point] = 0;
 		}
-		else if(string[larg-i]<=33 || string[larg-i]>=126){
-			string[larg-i] = 0;
+		else if(string[length-point]<=33 || string[length-point]>=126){
+			string[length-point] = 0;
 		}
-
-		
-		
 	}
-	
+	if(pointfirst<0 || length<0){
+		string[0] = 0;
+		return -1;
+	}
+	else{
+		return 1;
+	}
 }
 

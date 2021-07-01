@@ -1,27 +1,26 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void print(char* string){
+void print(char string[]){
 	printf("%s",string);
 }
-void scan(char outstring[]){
-	int i = 0;
-	int puntero = 0;
-	int byte = 0;
-	char string[30];
-	fgets(string, (30), stdin);
-	//printf("%s",string);
-	for(i=0; i<30; i++){
-		byte = string[i];
-		if(byte>=32 && byte<=126){
-			outstring[puntero] = byte;
-			puntero = puntero + 1;
+void scan(char string[], int length){
+	int point = 0;
+	int size = 0;
+	int ascii = 0;
+	char buffer[length];
+	fgets(buffer, length, stdin);
+	for(point=0; point<length; point++){
+		ascii = buffer[point];
+		if(ascii>=32 && ascii<=126){
+			string[size] = ascii;
+			size = size + 1;
 		}
 		else{
+			string[size] = 0;
 			break;
 		}
 	}
-	
 }
 
 /*int fprint(char filename[], int length, ...){
