@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <stdio.h>
 
 int atoc(int ascii, char* character){
 	if(ascii>=32 && ascii<=126){
@@ -11,33 +12,44 @@ int atoc(int ascii, char* character){
 	}
 }
 
-int ctoi(char string[10], int* integer){  
-	int ascii, point;
+int ctoi(char string[], int* integer){  
+	int ascii;
+	int point = 0;
+	int length = 0;
 	int digits = 0;
 	int overflow = 0;
+	*integer = 0;
 	int unit[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
-	for(point=0; point<10; point++) {
-		ascii = string[9-point];
-		if(ascii==57){
-			overflow++;
+	if(!((string[0]==45 && (string[1]<=57 || string[1]>=48)) || (string[0]<=57 || string[0]>=48))){
+		return -1;
+	}
+	do{
+		ascii = string[point];
+		point = (ascii==45 || (ascii<=57 && ascii>=48)) ? point+1 : point;
+		if(ascii!=45 && (ascii>57 || ascii<48)){
+			length = point;
 		}
+	}while(length==0);
+	for(point=(length-1); point>=0; point--) {
+		ascii = string[point];
 		if(ascii<=57 && ascii>=48){
-			ascii = string[9-point] - '0';
-			*integer = *integer + (ascii * unit[digits++]);
+			*integer = (*integer) + ((ascii - '0') * unit[digits++]);
+		}
+		if(*integer>1400000000){
+			overflow = 1;
+			point = -1;
 		}
 	}
-	if(string[0]==45 && *integer!=0){
-		*integer = 0 - *integer;
-	}
-	if(overflow<10 && digits>0){
-		return 1;
-	}
-	else{
+	if(overflow==1 || digits==0){
 		*integer = 0;
 		return -1;
 	}
+	if(string[0]==45){
+		*integer = 0 - *integer ;	
+	}
+	return 0;
+	
 }
-
 
 int itoc(int integer, char string[10]){
 	int digit;
@@ -47,29 +59,40 @@ int itoc(int integer, char string[10]){
 	if(integer<0){ 
 		string[length] = '-'; 
 		length = 1; 
-		integer = integer * (-1); 
+		integer *= (-1); 
 	}
 	do{
 		digit = integer % 10;
 		buffer[point] = digit + '0';
-		integer = integer / 10;
+		integer /= 10;
 		point++;
 	}while(integer);
 	for(point=0; point<10; point++) {
 		digit = buffer[9-point] - '0';
-		if(digit<=9 && digit>=0){
-			string[length] = digit + '0';
-			length++;
-		}	
+		string[length] = (digit<=9 && digit>=0) ? digit + '0' : 0;
+		length++;	
 	}
 	return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int concat(char string[], char *first, ...){
 	int point;
 	char character;
 	char *token;
-	int length=0;
+	int length = 0;
 	int pointfirst = 0;
 	int isfirst = 1;	
 	va_list args;
@@ -83,7 +106,7 @@ int concat(char string[], char *first, ...){
         		pointfirst++;
         	}
    			string[length] = character;
-   			point = point+1;
+   			point++;
    			character = token[point];
    			length++;
    		}
@@ -93,7 +116,7 @@ int concat(char string[], char *first, ...){
     length--;
     pointfirst--;
     va_end(args);
-	for(point=0;point<=pointfirst;point++){
+	for(point=0; point<=pointfirst; point++){
 		if(string[length-point] == first[pointfirst-point]){
 			string[length-point] = 0;
 		}
