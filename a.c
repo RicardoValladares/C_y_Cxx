@@ -3,15 +3,15 @@
 #include "library.h"		//libreria externa
 
 int main(int argc, char *argv[]){
-	char c[256]; 
-	int estado = concat(c,"HOLA \n","Ricardo");
-	if(estado==-1){
-			print("ERROR\n");
-		}
-		else{
-			print(c);
-		}
-	return 0;
+	//char c[256]; 
+	//int estado = concat(c,"HOLA \n","Ricardo");
+	//if(estado==-1){
+	//		print("ERROR\n");
+	//	}
+	//	else{
+	//		print(c);
+	//	}
+	//return 0;
 
 	/*int n1, n2, suma;
 	char cn1[10], cn2[10], csuma[10];
@@ -36,15 +36,16 @@ int main(int argc, char *argv[]){
 
 	
 
-	/*int num = -5230;
-	char cars[10];
-	int estado = itoc(num,cars);
+	int num;
+	char cars[11] = "0";
+	int estado = ctoi(cars,&num);
 	if(estado==-1){
 		printf("ERROR %d\n",num);
 	}
 	else{
 		printf("%d\n",num);
-	}*/
+	}
+	return 0;
 
 	
 	/*char a[] = "hola ";

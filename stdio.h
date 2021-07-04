@@ -41,8 +41,7 @@ int fscan(char filename[], char text[256][256], int* line){
 			}
 			else if(byte==10){
 				caracter = byte; 
-				text[y][x] = caracter;
-				text[y][x+1] = 0;
+				text[y][x] = 0;
 				y++;
 				x=0;
 				text[y][x] = 0;
@@ -55,29 +54,7 @@ int fscan(char filename[], char text[256][256], int* line){
 }
 
 
-/*int fprint(char filename[], int length, ...){
-	FILE *file = fopen(filename,"a+");
-	if(file == NULL){
-		return 0;
-	}
-	else{	
-		int i;
-		char* argumento;
-		va_list list;
-		va_start(list, length);
-		for(i = 0; i<length; i++){
-			argumento = va_arg(list, char*);
-			fprintf(file,"%s",argumento);
-		}
-		va_end(list);
-		fclose(file);
-		return 1;
-	}
-}*/
-
-
-/*
-int fscan(char filename[], int length, ...){
+int fprint(char filename[], int length, ...){
 	FILE *file = fopen(filename,"a+");
 	if(file == NULL){
 		return 0;
@@ -96,6 +73,4 @@ int fscan(char filename[], int length, ...){
 		return 1;
 	}
 }
-*/
-
 
