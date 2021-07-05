@@ -49,7 +49,7 @@ int main(int argc, char *argv[]){
 }
 
 /********************************************/
-/*	 out var in c function(&var);           */
+/*   out var in c function(&var);           */
 /*   function(*var){ *var = OK; }           */
 /*                                          */
 /*   out array in c function(array[]);      */
