@@ -3,6 +3,22 @@
 #include "library.h"		//libreria externa
 
 int main(int argc, char *argv[]){
+
+	char textil[256][256];
+	int line, lin, a;
+	int estado = scantxt("Persona.txt",textil, &line);
+	newtxt("a.txt");
+	for(a=0;a<=line;a++){
+		print(textil[a]);
+		print("\n");
+		printxt("a.txt",textil[a]);
+		printxt("a.txt","\n");
+	}
+	
+	pausa(5);
+
+
+	
 	//char c[256]; 
 	//int estado = concat(c,"HOLA \n","Ricardo");
 	//if(estado==-1){
@@ -36,7 +52,7 @@ int main(int argc, char *argv[]){
 
 	
 
-	int num;
+	/*int num;
 	char cars[11] = "0";
 	int estado = ctoi(cars,&num);
 	if(estado==-1){
@@ -45,7 +61,7 @@ int main(int argc, char *argv[]){
 	else{
 		printf("%d\n",num);
 	}
-	return 0;
+	return 0;*/
 
 	
 	/*char a[] = "hola ";

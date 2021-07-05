@@ -20,7 +20,7 @@ void scan(char string[], int length){
 		}
 	}
 }
-int fscan(char filename[], char text[256][256], int* line){
+int scantxt(char filename[], char text[256][256], int* line){
 	FILE *archivo = fopen(filename, "r");
 	char caracter;
 	int estado, x, y;
@@ -53,24 +53,26 @@ int fscan(char filename[], char text[256][256], int* line){
 	}
 }
 
-
-int fprint(char filename[], int length, ...){
-	FILE *file = fopen(filename,"a+");
-	if(file == NULL){
-		return 0;
+int newtxt(char filename[]){
+	FILE *file = fopen(filename,"w");
+	if(file == NULL){ 
+		return -1;
 	}
-	else{	
-		int i;
-		char* argumento;
-		va_list list;
-		va_start(list, length);
-		for(i = 0; i<length; i++){
-			argumento = va_arg(list, char*);
-			fprintf(file,"%s",argumento);
-		}
-		va_end(list);
+	else{
 		fclose(file);
 		return 1;
 	}
 }
 
+
+int printxt(char filename[], char string[]){
+	FILE *file = fopen(filename,"a+");
+	if(file == NULL){ 
+		return -1;
+	}
+	else{
+		fprintf(file,"%s",string);
+		fclose(file);
+		return 1;
+	}
+}
