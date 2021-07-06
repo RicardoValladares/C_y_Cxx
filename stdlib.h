@@ -87,7 +87,7 @@ int concat(char string[], char *first, ...){
    char character; 
    char *token; 
    int length = 0; 
-   int pointfirst = 0; 
+   int lengthfirst = 0; 
    int isfirst = 1; 
    va_list args; 
    va_start(args, first); 
@@ -97,7 +97,7 @@ int concat(char string[], char *first, ...){
       character = token[point]; 
       while((character>=32 && character<=126) || (character==10)){ 
          if(isfirst==1){ 
-            pointfirst++; 
+            lengthfirst++; 
          } 
          string[length] = character; 
          point++; 
@@ -108,17 +108,17 @@ int concat(char string[], char *first, ...){
       token = va_arg(args, char*); 
    } 
    length--; 
-   pointfirst--; 
+   lengthfirst--; 
    va_end(args); 
-   for(point=0; point<=pointfirst; point++){ 
-      if(string[length-point] == first[pointfirst-point]){ 
+   for(point=0; point<=lengthfirst; point++){ 
+      if(string[length-point] == first[lengthfirst-point]){ 
          string[length-point] = 0; 
       } 
       else if(string[length-point]<=33 || string[length-point]>=126){ 
          string[length-point] = 0; 
       } 
    } 
-   if(pointfirst<0 || length<0){ 
+   if(lengthfirst<0 || length<0){ 
       string[0] = 0; 
       return -1; 
    } 
