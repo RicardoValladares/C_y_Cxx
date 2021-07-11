@@ -2,12 +2,12 @@
 #include <stdio.h> 
  
 void pausa(int seconds){ 
-   printf("Pausado... %d", seconds); 
+   fprintf(stderr,"Pausado... %d", seconds); 
    do{ 
       seconds--; 
       sleep(1); 
-      printf(" %d", seconds); 
+      fprintf(stderr," %d", seconds); 
    }while(seconds>0); 
-   printf("\n"); 
+   fprintf(stderr,"\n"); 
 } 
  

@@ -1,7 +1,7 @@
 #include <stdio.h> 
  
 void print(char string[]){ 
-   printf("%s",string); 
+   fprintf(stderr,"%s",string); 
 } 
  
 void scan(char string[], int length){ 
