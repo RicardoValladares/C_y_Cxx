@@ -3,7 +3,7 @@
 gcc main.c -o main
 ```
 
-
+## main.c: 
 ```c
 #include "library.h" 
 #define Error -1 
