@@ -22,13 +22,13 @@ if(argc!=2){
       print("Ingrese su Edad: "); 
       scan(edad, 10); 
       Estado = ctoi(edad, &yo.Edad); 
-   }while(Estado==Error); 
+   }while(Estado == Error); 
    Estado = Guardar_Persona("Persona.txt", yo); 
 } 
 else{ 
    clear(); 
    Estado = Abrir_Persona(argv[1], &yo); 
-   if(Estado==Error){ 
+   if(Estado == Error){ 
       return 0; 
    } 
 } 
