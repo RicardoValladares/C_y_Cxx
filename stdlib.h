@@ -51,7 +51,7 @@ int ctoi(char string[], int* integer){
       return -1; 
    } 
    if(string[0]==45){ 
-      *integer = 0 - *integer ;	 
+      *integer = 0 - *integer;	 
    } 
    return 1; 
 } 
