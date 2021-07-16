@@ -37,6 +37,9 @@ int main(int argc, char *argv[]){
          Estado = ctoi(edad, &yo.Edad); 
       }while(Estado==Error); 
       Estado = Guardar_Persona("Persona.txt", yo); 
+      if(Estado==Error){ 
+         return 0; 
+      } 
    } 
    else{ 
       clear(); 
