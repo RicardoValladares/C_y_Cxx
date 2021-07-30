@@ -1,6 +1,6 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-
+ 
 #ifdef _WIN32 
 void clear(){ 
    system("cls"); 
@@ -10,7 +10,7 @@ void clear(){
    system("clear"); 
 } 
 #endif 
-
+ 
 void print(char string[]){ 
    fprintf(stderr,"%s",string); 
 } 
