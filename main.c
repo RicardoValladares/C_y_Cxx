@@ -61,6 +61,23 @@ int main(int argc, char *argv[]){
 /*   function(array[]){ array[0] = OK; }    */ 
 /********************************************/ 
  
+void Mostrar_Persona(Persona persona){ 
+   char edad[10]; 
+   print("\n--------------------------------\n"); 
+   print("Nombres: "); 
+   print(persona.Nombre1); 
+   print(" "); 
+   print(persona.Nombre2); 
+   print("\nApellidos: "); 
+   print(persona.Apellido1); 
+   print(" "); 
+   print(persona.Apellido2); 
+   print("\nEdad: "); 
+   itoc(persona.Edad,edad); 
+   print(edad); 
+   print("\n--------------------------------\n"); 
+} 
+ 
 int Guardar_Persona(char archivo[], Persona persona){ 
    char edad[10]; 
    int estado = newtxt(archivo); 
@@ -81,23 +98,6 @@ int Guardar_Persona(char archivo[], Persona persona){
    printxt(archivo, " \n"); 
    print("Archivo guardado\n"); 
    return Ok; 
-} 
- 
-void Mostrar_Persona(Persona persona){ 
-   char edad[10]; 
-   print("\n--------------------------------\n"); 
-   print("Nombres: "); 
-   print(persona.Nombre1); 
-   print(" "); 
-   print(persona.Nombre2); 
-   print("\nApellidos: "); 
-   print(persona.Apellido1); 
-   print(" "); 
-   print(persona.Apellido2); 
-   print("\nEdad: "); 
-   itoc(persona.Edad,edad); 
-   print(edad); 
-   print("\n--------------------------------\n"); 
 } 
  
 int Abrir_Persona(char archivo[], Persona *persona){ 
