@@ -105,7 +105,7 @@ int Abrir_Persona(char archivo[], Persona *persona){
    persona->Nombre2[0] = null; 
    persona->Apellido1[0] = null; 
    persona->Apellido2[0] = null; 
-   persona->Edad = 0; 
+   persona->Edad = null; 
    char texto[256][256]; 
    int lineas, linea, caracter; 
    int token = 0; 
