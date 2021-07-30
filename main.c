@@ -14,8 +14,8 @@ typedef struct{
 } Persona; 
  
 void Mostrar_Persona(Persona persona); 
-int Abrir_Persona(char archivo[], Persona *persona); 
 int Guardar_Persona(char archivo[], Persona persona); 
+int Abrir_Persona(char archivo[], Persona *persona); 
  
 int main(int argc, char *argv[]){ 
    Persona yo; 
