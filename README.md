@@ -1,11 +1,3 @@
-## Compilar: 
-```bash
-cc main.c -o main.bin
-gcc main.c -o main.bin
-tcc main.c -o main.bin
-mingw-w64-gcc main.c -o main.exe
-```
-
 ## main: 
 ```c
 Persona yo; 
