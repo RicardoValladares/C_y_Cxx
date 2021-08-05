@@ -117,10 +117,10 @@ int Abrir_Persona(char archivo[], Persona *persona){
       return Error; 
    } 
    for(linea=0; linea<=lineas; linea++){ 
-      for(caracter=0; caracter<256; caracter++){ 
+      for(caracter=0; caracter<100; caracter++){ 
          int ascii = texto[linea][caracter]; 
          if(ascii==null || ascii==NewLine){ 
-            caracter = 256; 
+            caracter = 100; 
          } 
          else{ 
             if(ascii==Space){ 
