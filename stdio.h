@@ -1,6 +1,12 @@
 #include <stdio.h> 
 #include <stdlib.h> 
  
+#ifdef __TURBOC__ 
+void clear(){ 
+   system("cls"); 
+} 
+#endif 
+ 
 #ifdef _WIN32 
 void clear(){ 
    system("cls"); 
