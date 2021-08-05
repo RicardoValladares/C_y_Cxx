@@ -14,6 +14,6 @@ void print(char string[]);
 void scan(char string[], int length); 
  
 int printxt(char filename[], char string[]); 
-int scantxt(char filename[], char text[256][256], int* line); 
+int scantxt(char filename[], char text[100][100], int* line); 
 int newtxt(char filename[]); 
  
