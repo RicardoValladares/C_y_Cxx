@@ -9,14 +9,18 @@ int atoc(int ascii, char* character){
    return -1; 
 } 
  
-int ctoi(char string[], int* integer){   
-   int ascii, limit; 
+int ctoi(char string[], int* integer){  
+   int unit[10]; 
+   int ascii, limit, i; 
    int point = 0; 
    int length = 0; 
    int digits = 0; 
    int overflow = 0; 
    *integer = 0; 
-   int unit[] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000}; 
+   unit[0] = 1; 
+   for(i=1; i<9; i++){ 
+      unit[i] = i * 10; 
+   } 
    if(string[0]==45 && (string[1]<=57 && string[1]>=48)){ 
       limit = 1; 
    } 
