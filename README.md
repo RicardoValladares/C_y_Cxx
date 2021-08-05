@@ -1,3 +1,5 @@
+Compatible con los compiladores: Turbo C, unix, GNU y xcode.
+
 ## main: 
 ```c
 Persona yo; 
