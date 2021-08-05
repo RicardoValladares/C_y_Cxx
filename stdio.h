@@ -5,9 +5,7 @@
 void clear(){ 
    system("cls"); 
 } 
-#endif 
- 
-#ifdef _WIN32 
+#elseif _WIN32 
 void clear(){ 
    system("cls"); 
 } 
