@@ -36,7 +36,7 @@ void scan(char string[], int length){
    } 
 } 
  
-int scantxt(char filename[], char text[256][256], int* line){ 
+int scantxt(char filename[], char text[100][100], int* line){ 
    FILE *file = fopen(filename, "r"); 
    char ascii; 
    int x, y; 
