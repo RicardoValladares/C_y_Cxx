@@ -11,15 +11,15 @@ int atoc(int ascii, char* character){
  
 int ctoi(char string[], int* integer){  
    int unitdecimal[10]; 
-   int ascii, limit, i; 
+   int ascii, limit, decimal; 
    int point = 0; 
    int length = 0; 
    int digits = 0; 
    int overflow = 0; 
    *integer = 0; 
    unitdecimal[0] = 1; 
-   for(i=1; i<9; i++){ 
-      unitdecimal[i] = i * 10; 
+   for(decimal=1; decimal<9; decimal++){ 
+      unitdecimal[decimal] = decimal * 10; 
    } 
    if(string[0]==45 && (string[1]<=57 && string[1]>=48)){ 
       limit = 1; 
