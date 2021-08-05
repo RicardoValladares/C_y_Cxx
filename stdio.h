@@ -5,7 +5,8 @@
 void clear(){ 
    system("cls"); 
 } 
-#elseif _WIN32 
+#else 
+#ifdef _WIN32 
 void clear(){ 
    system("cls"); 
 } 
@@ -14,13 +15,14 @@ void clear(){
    system("clear"); 
 } 
 #endif 
+#endif 
  
 void print(char string[]){ 
    fprintf(stderr,"%s",string); 
 } 
  
 void scan(char string[], int length){ 
-   char buffer[length]; 
+   char buffer[100]; 
    int point = 0; 
    int ascii = 0; 
    fgets(buffer, (length+1), stdin); 
