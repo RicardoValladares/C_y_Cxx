@@ -20,9 +20,9 @@ void print(char string[]){
 } 
  
 void scan(char string[], int length){ 
+   char buffer[length]; 
    int point = 0; 
    int ascii = 0; 
-   char buffer[length]; 
    fgets(buffer, (length+1), stdin); 
    for(point=0; point<length; point++){ 
       ascii = buffer[point]; 
@@ -37,11 +37,10 @@ void scan(char string[], int length){
 } 
  
 int scantxt(char filename[], char text[100][100], int* line){ 
-   FILE *file = fopen(filename, "r"); 
    char ascii; 
-   int x, y; 
-   x = 0; 
-   y = 0; 
+   int x = 0; 
+   int y = 0; 
+   FILE *file = fopen(filename, "r"); 
    if(file==NULL){ 
       text[0][0] = 0; 
       *line = 0; 
