@@ -101,17 +101,17 @@ int Guardar_Persona(char archivo[], Persona persona){
 } 
  
 int Abrir_Persona(char archivo[], Persona *persona){ 
+   int lineas, linea, caracter, estado; 
+   char texto[100][100]; 
+   int token = 0; 
+   int x = 0; 
+   char edad[10] = { null, null, null, null, null, null, null, null, null, null }; 
    persona->Nombre1[0] = null; 
    persona->Nombre2[0] = null; 
    persona->Apellido1[0] = null; 
    persona->Apellido2[0] = null; 
    persona->Edad = null; 
-   char texto[100][100]; 
-   int lineas, linea, caracter; 
-   int token = 0; 
-   int x = 0; 
-   char edad[10] = { null, null, null, null, null, null, null, null, null, null }; 
-   int estado = scantxt(archivo, texto, &lineas); 
+   estado = scantxt(archivo, texto, &lineas); 
    if(lineas<3 || estado==Error){ 
       print("Error al abrir el archivo\n"); 
       return Error; 
