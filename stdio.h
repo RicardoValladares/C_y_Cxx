@@ -48,7 +48,7 @@ int scantxt(char filename[], char text[100][100], int* line){
       *line = 0; 
       return -1; 
    } 
-   while((ascii=fgetc(file)) != EOF){ 
+   while(((ascii=fgetc(file))!=EOF) && (x<100 && y<100)){ 
       text[y][x++] = ascii>=32 && ascii<=126 ? ascii : 0; 
       if(ascii==10){ 
          x = 0; 
