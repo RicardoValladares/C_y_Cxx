@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch on Linux",
+            "name": "Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/main.bin",
@@ -24,7 +24,7 @@
             ]
         },
         {
-            "name": "Launch on ARG",
+            "name": "Launch + Persona.txt",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/main.bin",
