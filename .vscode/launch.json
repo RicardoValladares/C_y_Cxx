@@ -22,25 +22,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "Compile for Linux",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "/usr/bin/gcc",
-            "args": ["main.c","-o","${workspaceFolder}/build/main.bin"],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": false
-                }
-            ]
         }
     ]
 }
