@@ -9,11 +9,11 @@ void pausa(int seconds){
    fprintf(stderr,"Pausado... %d", seconds); 
    do{
       seconds--; 
-#ifdef __TURBOC__ 
+      #ifdef __TURBOC__
       delay(1000); 
-#else 
+      #else
       sleep(1); 
-#endif
+      #endif
       fprintf(stderr," %d", seconds); 
    }while(seconds>0); 
    fprintf(stderr,"\n"); 
