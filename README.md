@@ -2,6 +2,8 @@ Compatible con los compiladores: Turbo C, unix, GNU y xcode.
 
 ## main: 
 ```c
+#include "library.h" 
+
 Persona yo; 
 int Estado; 
 if(argc!=2){ 
