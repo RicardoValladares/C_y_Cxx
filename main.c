@@ -1,5 +1,4 @@
 #include "library.h"
-
 #define Error -1 
 #define Ok 1
 #define NewLine 10
