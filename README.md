@@ -1,4 +1,5 @@
 Compatible con los compiladores: Turbo C, unix, GNU y xcode.
+El código viene preconfigurado para funcionar con Visual Studio Code. 
 
 ## main: 
 ```c
