@@ -21,8 +21,6 @@ Windows:
 
 
 Codigo de Ejemplo usado esta libreria:
-
-## main: 
 ```c
 #include "library.h" 
  
