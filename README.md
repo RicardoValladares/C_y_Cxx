@@ -5,17 +5,17 @@ En caso no uses el editor de codigo Visual Studio Code, puedes usar los siguient
 
 Linux:
 ```bash
-  make compile
-  make run
-  make runarg
+make compile
+make run
+make runarg
 ```
 
 
 Windows:
 ```batch
-  make compile
-  make run
-  make runarg
+make compile
+make run
+make runarg
 ```
 
 
