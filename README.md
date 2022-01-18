@@ -33,6 +33,7 @@ int main(int argc, char *argv[]){
    int lineas = 0; 
    if(argc!=2){ 
       print("Requiere un argmento\n"); 
+      return Error; 
    } 
    else{ 
       clear(); 
