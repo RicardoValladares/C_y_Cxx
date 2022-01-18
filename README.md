@@ -38,7 +38,7 @@ int main(int argc, char *argv[]){
    else{ 
       clear(); 
       estado = scantxt(argv[1], texto, &lineas); 
-      if(lineas<2 || estado==Error){ 
+      if(lineas<1 || estado==Error){ 
          print("Error al abrir el archivo: ");  
          print(argv[1]); 
          print("\n"); 
