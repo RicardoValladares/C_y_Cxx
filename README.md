@@ -40,6 +40,7 @@ int main(int argc, char *argv[]){
       if(lineas<2 || estado==Error){ 
          print("Error al abrir el archivo: ");  
          print(argv[1]); 
+         print("\n"); 
          return Error; 
       } 
       for(linea=0; linea<=lineas; linea++){ 
