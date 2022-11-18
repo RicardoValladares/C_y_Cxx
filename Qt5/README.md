@@ -1,10 +1,11 @@
 # Ejemplo Básico con Framework Qt5 multiplataforma
 
-![ANDROID](https://github.com/RicardoValladares/Cxx/blob/main/Qt5/images/android.png)
 
-![WINDOWS](https://github.com/RicardoValladares/Cxx/blob/main/Qt5/images/windows.png)
+![ANDROID](https://raw.githubusercontent.com/RicardoValladares/C_y_Cxx/main/Qt5/images/android.png)
 
-![LINUX](https://github.com/RicardoValladares/Cxx/blob/main/Qt5/images/linux.png)
+![WINDOWS](https://raw.githubusercontent.com/RicardoValladares/C_y_Cxx/main/Qt5/images/windows.png)
 
-![MacOS](https://github.com/RicardoValladares/Cxx/blob/main/Qt5/images/mac.png)
+![LINUX](https://raw.githubusercontent.com/RicardoValladares/C_y_Cxx/main/Qt5/images/linux.png)
+
+![MacOS](https://raw.githubusercontent.com/RicardoValladares/C_y_Cxx/main/Qt5/images/mac.png)
 
