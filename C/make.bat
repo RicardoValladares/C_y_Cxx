@@ -5,15 +5,15 @@ if ["%*"]==["runarg"] GOTO CORRERARG
 GOTO FIN
 
 :COMPILAR
-gcc main.c -o ./build/main.exe
+gcc main.c -o ./dist/Windows.exe
 GOTO FIN
 
 :CORRER
-build\main.exe
+dist\Windows.exe
 GOTO FIN
 
 :CORRERARG
-build\main.exe Persona.txt
+dist\Windows.exe Persona.txt
 GOTO FIN
 
 :FIN

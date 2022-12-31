@@ -1,8 +1,40 @@
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+
 compile:
-	gcc main.c -o ./build/main.bin
+	gcc main.c -o ./dist/Linux.bin
 
 run:
-	./build/main.bin
+	./dist/Linux.bin
 
 runarg:
-	./build/main.bin Persona.txt
+	./dist/Linux.bin Persona.txt
+
+endif
+ifeq ($(UNAME), Darwin)
+
+compile:
+	gcc main.c -o ./dist/MacOS.app.bin
+
+run:
+	./dist/MacOS.app.bin
+
+runarg:
+	./dist/MacOS.app.bin Persona.txt
+
+endif
+ifeq ($(UNAME), FreeBSD)
+
+compile:
+	gcc main.c -o ./dist/BSD.bin
+
+run:
+	./dist/BSD.bin
+
+runarg:
+	./dist/BSD.bin Persona.txt
+
+endif
+
+
