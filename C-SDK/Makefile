@@ -4,14 +4,14 @@ ifeq ($(UNAME), Linux)
 
 compile:
 	# Compilar SDK
-	gcc -c -Wall -Werror -fpic -o ./CODE/libreria.o ./CODE/libreria.c
-	gcc -shared -o ./SDK/liblibreria.so ./CODE/libreria.o
-	cp ./CODE/libreria.h ./SDK/libreria.h
-	rm ./CODE/libreria.o
+	gcc -c -Wall -Werror -fpic -o ./CODE/library.o ./CODE/library.c
+	gcc -shared -o ./SDK/liblibrary.so ./CODE/library.o
+	cp ./CODE/library.h ./SDK/library.h
+	rm ./CODE/library.o
 	# Compilar Programa
-	cp ./SDK/liblibreria.so ./Release/liblibreria.so
+	cp ./SDK/liblibrary.so ./Release/liblibrary.so
 	gcc -Wall -I./SDK   -c ./main.c -o ./main.o 
-	gcc -L./SDK   main.o  -llibreria  -o ./Release/main.bin
+	gcc -L./SDK   main.o  -llibrary  -o ./Release/main.bin
 	rm ./main.o 
 
 run:
@@ -25,14 +25,14 @@ ifeq ($(UNAME), Darwin)
 
 compile:
 	# Compilar SDK
-	gcc -c -Wall -Werror -fpic -o ./CODE/libreria.o ./CODE/libreria.c
-	gcc -shared -o ./SDK/liblibreria.so ./CODE/libreria.o
-	cp ./CODE/libreria.h ./SDK/libreria.h
-	rm ./CODE/libreria.o
+	gcc -c -Wall -Werror -fpic -o ./CODE/library.o ./CODE/library.c
+	gcc -shared -o ./SDK/liblibrary.so ./CODE/library.o
+	cp ./CODE/library.h ./SDK/library.h
+	rm ./CODE/library.o
 	# Compilar Programa
-	cp ./SDK/liblibreria.so ./Release/liblibreria.so
+	cp ./SDK/liblibrary.so ./Release/liblibrary.so
 	gcc -Wall -I./SDK   -c ./main.c -o ./main.o 
-	gcc -L./SDK   main.o  -llibreria  -o ./Release/main.app
+	gcc -L./SDK   main.o  -llibrary  -o ./Release/main.app
 	rm ./main.o 
 
 run:
@@ -46,14 +46,14 @@ ifeq ($(UNAME), FreeBSD)
 
 compile:
 	# Compilar SDK
-	gcc -c -Wall -Werror -fpic -o ./CODE/libreria.o ./CODE/libreria.c
-	gcc -shared -o ./SDK/liblibreria.so ./CODE/libreria.o
-	cp ./CODE/libreria.h ./SDK/libreria.h
-	rm ./CODE/libreria.o
+	gcc -c -Wall -Werror -fpic -o ./CODE/library.o ./CODE/library.c
+	gcc -shared -o ./SDK/liblibrary.so ./CODE/library.o
+	cp ./CODE/library.h ./SDK/library.h
+	rm ./CODE/library.o
 	# Compilar Programa
-	cp ./SDK/liblibreria.so ./Release/liblibreria.so
+	cp ./SDK/liblibrary.so ./Release/liblibrary.so
 	gcc -Wall -I./SDK   -c ./main.c -o ./main.o 
-	gcc -L./SDK   main.o  -llibreria  -o ./Release/main.bsd
+	gcc -L./SDK   main.o  -llibrary  -o ./Release/main.bsd
 	rm ./main.o 
 
 run:

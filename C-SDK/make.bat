@@ -5,13 +5,13 @@ if ["%*"]==["runarg"] GOTO CORRERARG
 GOTO FIN
 
 :COMPILAR
-gcc -c -Wall -Werror -fpic -o ./CODE/libreria.o ./CODE/libreria.c
-gcc -shared -o ./SDK/liblibreria.dll ./CODE/libreria.o
-copy CODE\libreria.h SDK\libreria.h
-del CODE\libreria.o
-copy SDK\liblibreria.dll Release\liblibreria.dll
+gcc -c -Wall -Werror -fpic -o ./CODE/library.o ./CODE/library.c
+gcc -shared -o ./SDK/liblibrary.dll ./CODE/library.o
+copy CODE\library.h SDK\library.h
+del CODE\library.o
+copy SDK\liblibrary.dll Release\liblibrary.dll
 gcc -Wall -I./SDK   -c ./main.c -o ./main.o 
-gcc -L./SDK   main.o  -llibreria  -o ./Release/main.exe
+gcc -L./SDK   main.o  -llibrary  -o ./Release/main.exe
 del main.o 
 GOTO FIN
 
